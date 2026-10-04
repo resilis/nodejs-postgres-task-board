@@ -1,0 +1,18 @@
+{
+  "name": "resilis-nodejs-postgres-task-board",
+  "version": "1.0.0",
+  "type": "module",
+  "private": false,
+  "description": "A small Node.js and PostgreSQL task board with durable task storage.",
+  "license": "MIT",
+  "engines": {
+    "node": ">=22.15"
+  },
+  "scripts": {
+    "start": "node --env-file-if-exists=.env src/server.js",
+    "test": "node --test --test-concurrency=1"
+  },
+  "dependencies": {
+    "pg": "8.23.1"
+  }
+}

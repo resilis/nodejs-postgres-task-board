@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f3f2ec">
+    <meta name="description" content="A small, editable task board sample built with Node.js.">
+    <title>Task board · Resilis sample</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="Resilis task board home">
+        <span class="brand-mark" aria-hidden="true">R</span>
+        <span class="brand-name">RESILIS</span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-context">SAMPLE APP</span>
+      </a>
+      <div class="topbar-meta">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span id="storage-label">CONNECTING</span>
+      </div>
+    </header>
+
+    <main class="page">
+      <section class="intro" aria-labelledby="page-title">
+        <div>
+          <p class="eyebrow">A SMALL NODE.JS SAMPLE</p>
+          <h1 id="page-title">Task board</h1>
+          <p class="intro-copy">Make work visible. Keep it moving.</p>
+        </div>
+        <div class="intro-note">
+          <span class="note-label">THREE STEPS</span>
+          <span>Plan it. Move it. Finish it.</span>
+        </div>
+      </section>
+
+      <section class="create-panel" aria-labelledby="create-title">
+        <div class="create-heading">
+          <p class="eyebrow">ADD TO THE BOARD</p>
+          <h2 id="create-title">What needs doing?</h2>
+        </div>
+        <form id="create-form" class="create-form">
+          <label class="visually-hidden" for="new-title">Task title</label>
+          <input id="new-title" name="title" type="text" maxlength="120" placeholder="Write a clear task title…" autocomplete="off" required disabled>
+          <button class="button button-primary" type="submit" disabled>
+            <span aria-hidden="true">+</span> Add task
+          </button>
+        </form>
+        <div class="create-footer">
+          <span id="write-mode">Loading board controls…</span>
+          <span class="limit-note"><span id="task-count">0</span> / 100 tasks</span>
+        </div>
+      </section>
+
+      <p id="notice" class="notice" role="status" aria-live="polite" hidden></p>
+
+      <section class="board" aria-label="Tasks by status">
+        <article class="lane" data-lane="todo">
+          <header class="lane-header">
+            <div class="lane-title-group">
+              <span class="lane-index">01</span>
+              <h2>To do</h2>
+            </div>
+            <span class="lane-count" data-count="todo">0</span>
+          </header>
+          <div class="lane-body" data-tasks="todo"></div>
+          <p class="lane-empty" data-empty="todo">Nothing queued. Add the next task above.</p>
+        </article>
+        <article class="lane" data-lane="doing">
+          <header class="lane-header">
+            <div class="lane-title-group">
+              <span class="lane-index">02</span>
+              <h2>Doing</h2>
+            </div>
+            <span class="lane-count" data-count="doing">0</span>
+          </header>
+          <div class="lane-body" data-tasks="doing"></div>
+          <p class="lane-empty" data-empty="doing">No active work right now.</p>
+        </article>
+        <article class="lane" data-lane="done">
+          <header class="lane-header">
+            <div class="lane-title-group">
+              <span class="lane-index">03</span>
+              <h2>Done</h2>
+            </div>
+            <span class="lane-count" data-count="done">0</span>
+          </header>
+          <div class="lane-body" data-tasks="done"></div>
+          <p class="lane-empty" data-empty="done">Finished work lands here.</p>
+        </article>
+      </section>
+
+      <footer class="page-footer">
+        <span>NODE.JS · VANILLA UI</span>
+        <span>Tasks are sample data. This board has no sign-in.</span>
+      </footer>
+    </main>
+  </body>
+</html>
